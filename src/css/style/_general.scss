@@ -1,0 +1,17 @@
+*{
+	box-sizing: border-box;
+	max-width: 100%;
+	word-break: break-word;
+}
+
+html,
+body{
+	width: 100%;
+	min-height: 100%;
+	margin:  0;
+	padding: 0;
+	font-family: Roboto, sans-serif;
+	font-size: 16px;
+	line-height: 1.4;
+	color: $black;
+}

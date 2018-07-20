@@ -23,17 +23,19 @@ var config = {
 		images:  'src/images/*.*',
 		js: 'src/js/*.js',
 		js_vendors: 'src/js/vendors/*.js',
-		bootstrap_utils: 'src/css/bootstrap-4.1.2/scss/bootstrap_utils.scss',
-		css: 'src/css/custom/custom.scss'
+		css: 'src/css/style/style.scss',
+		favicon: 'src/favicon/*.*',
+		css_vendors: 'src/css/vendors/*.css'
 	},
 	dist: {
-		html:  'dist/html',
+		html:  'dist',
 		fonts: 'dist/fonts',
 		images: 'dist/images',
 		js: 'dist/js',
 		js_vendors: 'dist/js/vendors',
-		bootstrap_utils: 'dist/css',
-		css: 'dist/css'
+		css: 'dist/css',
+		favicon: 'dist',
+		css_vendors: 'dist/css/vendors'
 	},
 	watch: {
 		html:  'src/pug/*.pug',
@@ -41,8 +43,9 @@ var config = {
 		images:  'src/images/*.*',
 		js: 'src/js/*.js',
 		js_vendors: 'src/js/vendors/*.js',
-		bootstrap_utils: 'src/css/bootstrap-4.1.2/scss/**/*',
-		css: 'src/css/custom/**/*'
+		css: 'src/css/style/**/*',
+		favicon: 'src/favicon/*.*',
+		css_vendors: 'src/css/vendors/*.css'
 	},
 	browsers: ['last 2 versions','ie >= 11','> 1%'],
 };
@@ -118,12 +121,6 @@ gulp.task('images', function(){
 	);			
 });
 
-gulp.task('watch', function() {   
-    gulp.watch(config.watch.html, ['html']);
-    gulp.watch(config.watch.fonts, ['fonts']);
-    gulp.watch(config.watch.images, ['images']);
-});
-
 gulp.task('js', () => {
 		miss.pipe(
 			gulp.src( config.src.js ),
@@ -160,7 +157,7 @@ gulp.task('css', () => {
 			autoprefixer({
 				browsers: config.browsers
 			}),    
-			sourcemaps.write('/'), 			
+			sourcemaps.write('/'),	
 			gulp.dest( config.dist.css ),
 			(err) => {
 				if (err) return err_log(err);
@@ -169,16 +166,10 @@ gulp.task('css', () => {
 	}
 );
 
-gulp.task('bootstrap_utils', () => {
+gulp.task('favicon', () => {
 		miss.pipe(
-			gulp.src( config.src.bootstrap_utils ),
-			sourcemaps.init(),
-			sass(),
-			autoprefixer({
-				browsers: config.browsers
-			}),    
-			sourcemaps.write('/'), 			
-			gulp.dest( config.dist.bootstrap_utils ),
+			gulp.src( config.src.favicon ),
+			gulp.dest( config.dist.favicon ),
 			(err) => {
 				if (err) return err_log(err);
 			}
@@ -186,12 +177,37 @@ gulp.task('bootstrap_utils', () => {
 	}
 );
 
+gulp.task('css_vendors', () => {
+		miss.pipe(
+			gulp.src( config.src.css_vendors ),
+			gulp.dest( config.dist.css_vendors ),
+			(err) => {
+				if (err) return err_log(err);
+			}
+		);
+	}
+);
+
+gulp.task('watch', function() {   
+	gulp.watch(config.watch.html, ['html']);
+	gulp.watch(config.watch.fonts, ['fonts']);
+	gulp.watch(config.watch.images, ['images']);
+	gulp.watch(config.watch.js, ['js']);
+	gulp.watch(config.watch.js_vendors, ['js_vendors']);
+	gulp.watch(config.watch.css, ['css']);
+	gulp.watch(config.watch.favicon, ['favicon']);
+	gulp.watch(config.watch.css_vendors, ['css_vendors']);
+});
+
 gulp.task( 'build', [
 	'html', 
 	'fonts', 
 	'images',
 	'js',
-	'js_vendors'
+	'js_vendors',
+	'css',
+	'favicon',
+	'css_vendors',
 ]);
 
 gulp.task('default', [

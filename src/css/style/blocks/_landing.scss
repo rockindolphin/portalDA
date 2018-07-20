@@ -1,0 +1,34 @@
+.landing{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.landing__content-wrapper{
+	width: 100%;
+	height: 100vh;
+	overflow-y: scroll;
+}
+
+.landing__content{
+		background: red;
+}
+
+.landing__aside-wrapper{
+	width: 100%;
+	max-width: 340px;
+	flex-shrink: 0;	
+	height: 100vh;
+	overflow-y: scroll;	
+}
+
+.landing__aside{
+	min-height: 100vh;
+		background: green;	
+}
+
+.landing__section{
+	min-height: 100vh;
+}

@@ -1,0 +1,45 @@
+.page{
+	display: flex; /*fix бага ie11 с min-height:100%*/
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: flex-start;
+	position: relative;
+	z-index: 1;	
+}
+
+.page__body{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	min-height: 100vh;
+	position: relative;
+	z-index: 0;
+}
+
+.page__wrapper{
+	width: 100%;
+	max-width: $page-wrapper-max + $page-gap*2;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $page-gap;
+	padding-right: $page-gap;
+}
+
+.page__header{
+	position: relative;
+	z-index: 5;
+	width: 100%;
+}
+
+.page__main{
+	width: 100%;
+	flex-grow: 1;
+}
+
+.page__footer{
+	width: 100%;
+}
+
+
+

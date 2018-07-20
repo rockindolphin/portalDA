@@ -4,7 +4,40 @@ doctype html
 html(lang="ru")
 	+head()
 	body.page
-		header
-		main
-		footer
+		.page__body
+			//-header.page__header header
+			main.page__main
+				.landing
+					.landing__content-wrapper.custom-scroll
+						.landing__content
+							section.landing__section.section--landing-slider
+								.swiper-container.slider.slider--landing
+									.swiper-wrapper.slider__wrapper
+										.swiper-slide.slider__slide
+											img(src="images/slider-1.jpg", alt="slider-1", data-bg="true") 
+											| Slide 1
+										.swiper-slide.slider__slide
+											img(src="images/slider-2.jpg", alt="slider-2", data-bg="true") 
+											| Slide 2
+										.swiper-slide.slider__slide
+											img(src="images/slider-3.jpg", alt="slider-3", data-bg="true") 
+											| Slide 3
+									.swiper-pagination
+							section.landing__section.section--assets
+								.swiper-container.slider.slider--assets
+									.swiper-wrapper.slider__wrapper
+										.swiper-slide.slider__slide
+											| Slide 1
+										.swiper-slide.slider__slide
+											| Slide 2
+										.swiper-slide.slider__slide
+											| Slide 3
+									.swiper-button-prev
+									.swiper-button-next
+							section.landing__section banner 1
+							section.landing__section banner 2
+					aside.landing__aside-wrapper.custom-scroll
+						.landing__aside aside
+			//-footer.page__footer footer
+			include partials/scripts.pug 
 		

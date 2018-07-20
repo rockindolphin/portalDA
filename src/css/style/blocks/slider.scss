@@ -1,0 +1,42 @@
+.slider{
+
+}
+
+.slider__container{
+
+}
+
+.slider__wrapper{
+
+}
+
+.slider__slide{
+
+}
+
+.slider--landing{
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	color: $white;
+	.slider__wrapper{
+		height: auto;
+		display: flex;
+		flex-direction: row;
+		align-items: stretch;		
+	}
+	.slider__slide{
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+}
+
+.slider--assets{
+	.slider__wrapper{
+	
+	}
+	.slider__slide{
+
+	}
+}
