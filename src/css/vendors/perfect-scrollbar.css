@@ -1,6 +1,11 @@
 .custom-scroll{
   position: relative;
 }
+.ps__rail-x,
+.ps__rail-y {
+  z-index: 1;
+}
+
 /*
  * Container style
  */

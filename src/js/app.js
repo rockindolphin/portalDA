@@ -31,15 +31,19 @@
 			touchReleaseOnEdges: true,
 			disableOnInteraction: false,
 			loop: true,
+			pagination: {
+				el: '.swiper-pagination',
+				type: 'bullets',
+				clickable: true
+			}
 		});
 
 		var landingAssetsSlider = new Swiper('.slider--assets', {
 			direction: 'horizontal',
 			slidesPerView: 4,
-			touchReleaseOnEdges: true,
-			disableOnInteraction: false,
 			loop: true,
-		});			
+			autoHeight: true,
+		});		
 
 	});
 })(jQuery);

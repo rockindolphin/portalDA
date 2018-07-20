@@ -1,0 +1,65 @@
+-
+	var assets = [
+		{
+			id: 98983410,
+			date: '12.08.2017',
+			title: 'Многофункциональный гостиничный комплекс',
+			type: 'Гостиница',
+			desc: [
+				{label: 'GBA', 				value: '12 300 кв.м.'},
+				{label: 'Кол-во звёзд', 	value: '5'},
+				{label: 'Кол-во номеров', 	value: '124'}
+			],
+			reason: 'Банкротство',
+			price: '4 153 240 100',
+			location: 'Республика Татарстан, г.Казань'
+		},
+		{
+			id: 98983410,
+			date: '12.08.2017',
+			title: 'Торговые и офисные помещения',
+			type: 'Офисный центр, торговый центр',
+			desc: [
+				{label: 'Кол-во помещений', 	value: '24'}
+			],
+			reason: 'Исполнительное производство',
+			price: '980 340',
+			location: 'г.Санк-Петербург'
+		},
+		{
+			id: 98983410,
+			date: '12.08.2017',
+			title: 'Административно-бытовое здание с типографией и складом',
+			type: 'Прочее производственное предприятие',
+			desc: [],
+			reason: 'Взыскание',
+			price: '8 640 127 ',
+			location: 'Волгоградская область'
+		},
+
+	]
+
+mixin asset(index)
+	-
+		var asset = assets[index],
+			src = `images/assets/asset-${index+1}.jpg`,
+			alt = `asset-${index+1}`;
+	.asset
+		.asset__pic
+			img(src=src, alt=alt, data-bg="true")
+		.d-flex.align-items-center.justify-content-between
+			.asset__id ID #{asset.id}
+			.asset__date #{asset.date}
+		.asset__title #{asset.title}
+		.asset__type #{asset.type}
+		.asset__desc
+			if asset.desc.length > 0
+				each row in asset.desc
+					div
+						span #{row.label}
+						| — 
+						span #{row.value}
+		.asset__info
+			.asset__reason #{asset.reason}
+			.asset__price #{asset.price} ₽
+			.asset__location #{asset.location}

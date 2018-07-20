@@ -1,71 +1,32 @@
 
-/* exo-2-300 - cyrillic_latin */
-@font-face {
-	font-family: 'Exo 2';
-	font-style: normal;
-	font-weight: $fw-light;
-	src: 	local("Exo 2 Light"), 
-			local("Exo2-Light"), 
-			url('../fonts/Exo2Light.woff2') format("woff2"), 
-			url('../fonts/Exo2Light.woff') format("woff"), 
+@mixin addFont($name, $style, $weight){
+	@font-face {
+		font-family: $name;
+		font-style: $style;
+		font-weight: $weight;
+		src: 	url('../fonts/#{$name}/#{$name}-#{$style}-#{$weight}.woff2') format("woff2"), 
+				url('../fonts/#{$name}/#{$name}-#{$style}-#{$weight}.woff') format("woff"), 
+	}
 }
 
+
+/* exo-2-300 - cyrillic_latin */
+@include addFont('Exo2', normal, $fw-light);
 
 /* exo-2-regular - cyrillic_latin */
-@font-face {
-	font-family: 'Exo 2';
-	font-style: normal;
-	font-weight: $fw-normal;
-	src: 	local("Exo 2"), 
-			local("Exo2-Regular"), 
-			url('../fonts/Exo2Regular.woff2') format("woff2"), 
-			url('../fonts/Exo2Regular.woff') format("woff"), 
-}
-
+@include addFont('Exo2', normal, $fw-normal);
 
 /* exo-2-600 - cyrillic_latin */
-@font-face {
-	font-family: 'Exo 2';
-	font-style: normal;
-	font-weight: $fw-semi-bold;
-	src: 	local("Exo 2 Semi Bold"), 
-			local("Exo2-SemiBold"), 
-			url('../fonts/Exo2SemiBold.woff2') format("woff2"), 
-			url('../fonts/Exo2SemiBold.woff') format("woff"), 
-}
-
+@include addFont('Exo2', normal, $fw-semi-bold);
 
 /* exo-2-700 - cyrillic_latin */
-@font-face {
-	font-family: 'Exo 2';
-	font-style: normal;
-	font-weight: $fw-bold;
-	src: 	local("Exo 2 Bold"), 
-			local("Exo2-Bold"), 
-			url('../fonts/Exo2Bold.woff2') format("woff2"), 
-			url('../fonts/Exo2Bold.woff') format("woff"), 
-}
-
+@include addFont('Exo2', normal, $fw-bold);
 
 /* roboto-regular - cyrillic_latin */
-@font-face {
-	font-family: 'Roboto';
-	font-style: normal;
-	font-weight: $fw-normal;
-	src: 	local("Roboto"), 
-			local("Roboto-Regular"), 
-			url('../fonts/RobotoRegular.woff2') format("woff2"), 
-			url('../fonts/RobotoRegular.woff') format("woff"), 
-}
-
+@include addFont('Roboto', normal, $fw-normal);
 
 /* roboto-700 - cyrillic_latin */
-@font-face {
-	font-family: 'Roboto';
-	font-style: normal;
-	font-weight: $fw-bold;
-	src: 	local("Roboto Bold"), 
-			local("Roboto-Bold"), 
-			url('../fonts/RobotoBold.woff2') format("woff2"), 
-			url('../fonts/RobotoBold.woff') format("woff"), 
-}
+@include addFont('Roboto', normal, $fw-bold);
+
+/* ALSRubl */
+//@include addFont('ALSRubl', normal, $fw-normal);

@@ -1,0 +1,34 @@
+-
+	var assets_top = [
+		{
+			category: 'Сельскохозяйственные активы',
+			title: 'Животноводческие комплексы, сельхозпредприятия и лесные участки',
+			type: 'Земельньный участок сельскохозяйственного назначения',
+			location: 'Сибирский ФО, Алтайский край'
+		},
+		{
+			category: 'Производственные предприятия',
+			title: 'Нефтеперерабатывающие и машиностроительные заводы',
+			type: 'Нефтеперерабатывающий завод',
+			location: 'РФ, Уральский ФО, Курганская область, р.п. Красный Октябрь'
+		},
+		{
+			category: 'Недвижимость',
+			title: 'Торговые центры и жилые комплексы',
+			type: 'Универмаг «Цветной»',
+			location: 'г. Москва, Цветной бульвар 15, стр. 1'
+		}
+	]
+
+mixin asset_top(index)
+	-
+		var asset = assets_top[index],
+			alt = `slider-${index+1}`,
+			src = `images/slider-${index+1}.jpg`;
+	img(src=src, alt=alt, data-bg="true") 
+	.asset
+		.asset__category #{asset.category}
+		.asset__title #{asset.title}
+		.asset__info 
+			.asset__type #{asset.type}
+			.asset__location #{asset.location}

@@ -9,11 +9,25 @@
 .landing__content-wrapper{
 	width: 100%;
 	height: 100vh;
+	overflow-x: hidden;
 	overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;	
 }
 
 .landing__content{
+	display: flex; /*fix бага ie11 с min-height:100%*/
+	flex-direction: column;
 		background: red;
+}
+
+.landing__content--shifted{
+	width: 100vw;
+	max-width: none;
+	& * {
+		max-width: none;
+	}
 }
 
 .landing__aside-wrapper{
@@ -21,12 +35,22 @@
 	max-width: 340px;
 	flex-shrink: 0;	
 	height: 100vh;
+	overflow-x: hidden;
 	overflow-y: scroll;	
 }
 
 .landing__aside{
 	min-height: 100vh;
+	width: 340px;
+	max-width: none;
 		background: green;	
+}
+
+.landing__aside--hidden{
+	width: 0;
+	@include media-breakpoint-up(lg) {
+		width: auto;
+	}
 }
 
 .landing__section{

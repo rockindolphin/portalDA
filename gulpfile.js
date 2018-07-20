@@ -13,19 +13,21 @@ const 	gulp = require('gulp'),
 		rename = require('gulp-rename'),
 		sourcemaps = require('gulp-sourcemaps'),
 		autoprefixer = require('gulp-autoprefixer'),
-		babel = require('gulp-babel'),	
+		babel = require('gulp-babel'),
+		svgSprite = require("gulp-svg-sprites"),
 		server = require('gulp-server-livereload');
 
 var config = {
 	src: {
 		html:  'src/pug/*.pug',
 		fonts:  'src/fonts/**/*',
-		images:  'src/images/*.*',
+		images:  'src/images/**/*',
 		js: 'src/js/*.js',
 		js_vendors: 'src/js/vendors/*.js',
 		css: 'src/css/style/style.scss',
 		favicon: 'src/favicon/*.*',
-		css_vendors: 'src/css/vendors/*.css'
+		css_vendors: 'src/css/vendors/*.css',
+		svg_sprites: 'src/images/sprites/svg/*.svg'
 	},
 	dist: {
 		html:  'dist',
@@ -35,17 +37,19 @@ var config = {
 		js_vendors: 'dist/js/vendors',
 		css: 'dist/css',
 		favicon: 'dist',
-		css_vendors: 'dist/css/vendors'
+		css_vendors: 'dist/css/vendors',
+		svg_sprites: 'dist/images'
 	},
 	watch: {
 		html:  'src/pug/*.pug',
 		fonts:  'src/fonts/**/*',
-		images:  'src/images/*.*',
+		images:  'src/images/**/*',
 		js: 'src/js/*.js',
 		js_vendors: 'src/js/vendors/*.js',
 		css: 'src/css/style/**/*',
 		favicon: 'src/favicon/*.*',
-		css_vendors: 'src/css/vendors/*.css'
+		css_vendors: 'src/css/vendors/*.css',
+		svg_sprites: 'src/images/sprites/svg/*.svg'
 	},
 	browsers: ['last 2 versions','ie >= 11','> 1%'],
 };
@@ -188,6 +192,26 @@ gulp.task('css_vendors', () => {
 	}
 );
 
+gulp.task('svg_sprites', () => {
+		miss.pipe(
+			gulp.src( config.src.svg_sprites ),
+			svgSprite({
+				mode: 'symbols',
+				svg: {
+					symbols: 'sprite.svg'
+				},
+				preview: {
+					symbols: 'sprite_svg.html'
+				},											
+			}),		
+			gulp.dest( config.dist.svg_sprites ),
+			(err) => {
+				if (err) return err_log(err);
+			}
+		);		
+	}
+);
+
 gulp.task('watch', function() {   
 	gulp.watch(config.watch.html, ['html']);
 	gulp.watch(config.watch.fonts, ['fonts']);
@@ -197,6 +221,7 @@ gulp.task('watch', function() {
 	gulp.watch(config.watch.css, ['css']);
 	gulp.watch(config.watch.favicon, ['favicon']);
 	gulp.watch(config.watch.css_vendors, ['css_vendors']);
+	gulp.watch(config.watch.svg_sprites, ['svg_sprites']);
 });
 
 gulp.task( 'build', [
@@ -208,6 +233,7 @@ gulp.task( 'build', [
 	'css',
 	'favicon',
 	'css_vendors',
+	'svg_sprites',
 ]);
 
 gulp.task('default', [
