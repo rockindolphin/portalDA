@@ -11,14 +11,14 @@ html(lang="ru")
 				.landing
 					.landing__content-wrapper.custom-scroll
 						.landing__content
-							section.landing__section.section--landing-slider
+							section#section-1.landing__section.section--landing-slider
 								.swiper-container.slider.slider--landing
 									.swiper-wrapper.slider__wrapper
 										each index in [0,1,2]
 											.swiper-slide.slider__slide
 												+asset_top(index)
 									.swiper-pagination.slider__pagination
-							section.landing__section.section--assets
+							section#section-2.landing__section.section--assets
 								.section__wrapper
 									.section__title
 										| Приобрести активы сейчас
@@ -32,7 +32,7 @@ html(lang="ru")
 													.swiper-slide.slider__slide
 														+asset(index)
 										.slider__btn.slider__btn--next.swiper-button-next
-							section.landing__section.section--banner.section--banner1
+							section#section-3.landing__section.section--banner.section--banner1
 								.page__wrapper
 									.section__content
 										.section__title
@@ -58,8 +58,8 @@ html(lang="ru")
 												li.list__item 
 													+icon('man')
 													span Вы – профессиональный инвестор.
-											button Отправить заявку
-							section.landing__section.section--banner.section--banner2
+											button.btn.button.button--primary(type='button') Отправить заявку
+							section#section-4.landing__section.section--banner.section--banner2
 								.page__wrapper
 									.section__content
 										.section__title
@@ -78,11 +78,42 @@ html(lang="ru")
 													| Загружаем данные о ваших активах на Портал DA
 												li.list__item
 													| Проводим поиск инвестора, сопровождение сделки (в зависимости от пакета услуг)
-											button Отправить заявку
+											button.btn.button.button--primary(type='button') Отправить заявку
 					aside.landing__aside-wrapper.custom-scroll.landing__aside--hidden
-						.landing__aside 
-							| aside
-							|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, odio! Assumenda veritatis fugiat inventore placeat, iste culpa voluptas ut aliquam quasi molestias harum id quibusdam hic, quidem nobis asperiores error.
+						.landing__aside
+							.landing__aside-header
+								button.btn.button.btn-sm.button--outline-primary(type='button') 
+									+icon('enter','mr-2')
+									| Регистрация / Вход 
+							.landing__aside-main
+								.landing__aside-menu
+									.menu__item
+										a.link(href="#section-2")
+											| Купить сейчас
+										.d-block.mt-2
+											.d-block Гарантия защиты информации
+											.d-block Точный и релевантный выбор для вашего бизнеса
+											.d-block Юридическая поддержка
+									.menu__item.menu__item--active
+										a.link(href="#section-3")
+											| Зарегистрироваться на портале
+										.d-block.mt-2
+											| Расширить границы бизнеса. Выгодные инвестиции в готовый бизнес. Активы на территории России и за рубежом
+									.menu__item
+										a.link(href="#section-4")
+											| Выгодно продать
+										.d-block.mt-2
+											.d-block Гарантия защиты информации
+											.d-block Точный и релевантный выбор для вашего бизнеса
+											.d-block Юридическая поддержка
+							.landing__aside-footer
+								a.info__phone(href="tel:+79850143308")
+									| +7 (985) 014-33-08
+								.info__schedule
+									| Пн—Пт с 10:00 до 19:00
+								button.btn.button.button--primary.mb-3(type='button') Отправить заявку										
+								.info__copy
+									| © 2017—2018 Портал Distressed Assets
 			//-footer.page__footer footer
 			include partials/scripts.pug 
 		

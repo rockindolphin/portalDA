@@ -1,3 +1,4 @@
-mixin icon(name)
-	svg(class="icon icon--" + name)
+mixin icon(name, userClass)
+	- var ic = {class: `icon icon--${name} ${userClass || ''}` };
+	svg()&attributes(ic)
 		use(xlink:href="#" + name)
