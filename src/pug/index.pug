@@ -18,13 +18,19 @@ html(lang="ru")
 												+asset_top(index)
 									.swiper-pagination.slider__pagination
 							section.landing__section.section--assets
-								.swiper-container.slider.slider--assets
-									.swiper-wrapper.slider__wrapper
-										each index in [0,1,2,0,1]
-											.swiper-slide.slider__slide
-												+asset(index)
-									.swiper-button-prev
-									.swiper-button-next
+								.section__wrapper
+									.section__title
+										| Приобрести активы сейчас
+									.section__subtitle
+										| Проблемные активы стоят в разы дешевле обыкновенных предложений на рынке недвижимости, это и позволяет нашим покупателям дешево купить активы банкротов на нашей «распродаже активов».
+									.d-flex.align-items-center.justify-content-center
+										.slider__btn.slider__btn--prev.swiper-button-prev
+										.swiper-container.slider.slider--assets
+											.swiper-wrapper.slider__wrapper
+												each index in [0,1,2,0,1]
+													.swiper-slide.slider__slide
+														+asset(index)
+										.slider__btn.slider__btn--next.swiper-button-next
 							section.landing__section banner 1
 							section.landing__section banner 2
 					aside.landing__aside-wrapper.custom-scroll.landing__aside--hidden

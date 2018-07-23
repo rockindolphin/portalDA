@@ -40,9 +40,13 @@
 
 		var landingAssetsSlider = new Swiper('.slider--assets', {
 			direction: 'horizontal',
-			slidesPerView: 4,
+			slidesPerView: 'auto',
 			loop: true,
 			autoHeight: true,
+			navigation: {
+				nextEl: '.section--assets .swiper-button-next',
+				prevEl: '.section--assets .swiper-button-prev',
+			},
 		});		
 
 	});

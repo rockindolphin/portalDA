@@ -6,6 +6,14 @@
 	
 }
 
+.section__title{
+	
+}
+
+.section__subtitle{
+	
+}
+
 .section--landing-slider{
 	background-color: yellow;
 	min-height: 100vh;
@@ -15,8 +23,69 @@
 }
 
 .section--assets{
-		background-color: purple;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: center;		
+	.section__wrapper{
+		position: relative;
+		padding-left: 12px;
+		padding-right: 12px;
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	.slider__btn{
+		position: static;
+		transform: none;
+	}
+	.section__title,
+	.section__subtitle{
+		max-width: 690px;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		color: $gray_282;
+	}	
+	.section__title{
+		font-family: 'Exo2';
+		font-size: 24px;
+		line-height: 1.2;
+		margin-bottom: 20px;
+	}
+	.section__subtitle{
+		font-size: 14px;
+		line-height: 1.5;
+		margin-bottom: 40px;
+	}	
+	@include media-breakpoint-up(sm) {
+
+	}
+	@include media-breakpoint-up(md) {
+		.section__wrapper{
+			padding-left: 30px;
+			padding-right: 30px;
+			padding-top: 100px;
+			padding-bottom: 100px;			
+		}
+	}
+	@include media-breakpoint-up(lg) {
+		.section__title{
+			font-size: 48px;
+			margin-bottom: 25px;
+		}
+		.section__subtitle{
+			font-size: 18px;
+		}
+		.section__wrapper{
+			padding-bottom: 160px;			
+		}				
+	}
+	@include media-breakpoint-up(xl) {
+		.section__wrapper{
+			padding-left: $page-gap;
+			padding-right: $page-gap;
+		}
+		.section__subtitle{
+			margin-bottom: 180px;
+		}		
+	}	
 }
