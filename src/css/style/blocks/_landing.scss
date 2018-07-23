@@ -4,7 +4,7 @@
 	flex-direction: row;
 	align-items: flex-start;
 	justify-content: space-between;
-	background-color: $white;
+	background-color: $gray_f3f;
 }
 
 .landing__content-wrapper{
@@ -12,9 +12,9 @@
 	height: 100vh;
 	overflow-x: hidden;
 	overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
 	@include media-breakpoint-up(lg) {
 		max-width: none;
 		margin-left: -$aside-tooltip-width;	
@@ -27,6 +27,78 @@
 	display: flex; /*fix бага ie11 с min-height:100%*/
 	flex-direction: column;
 }
+
+.landing__header{
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	color: $white;
+	& > .page__wrapper{
+		padding-left: 30px;
+		padding-right: 30px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.landing__logo{
+		width: 131px;
+		height: 40px;
+		margin-right: 60px;
+	}
+	.header__info{
+		display: none;
+	}
+	.info__phone{
+		color: $white;
+		font-family: 'Exo2';
+		font-size: 18px;
+		&:hover{
+			color: $white;
+		}
+	}
+	.info__schedule{
+		font-size: 12px;
+		opacity: 0.6;
+	}
+	.button--primary{
+		display: none;		
+	}
+	.btn-link{
+		color: $white;
+		.icon{
+			width: 25px;
+			height: 25px;
+		}
+	}
+	.slider__pagination{
+		position: static;
+	}
+	@include media-breakpoint-up(md) {
+		.header__info{
+			display: block;
+		}
+		.button--primary{
+			display: block;		
+		}
+	}
+	@include media-breakpoint-up(lg) {
+		.header__info{
+			margin-right: auto;
+		}
+		.button--primary{
+			display: none;		
+		}
+		.btn-link{
+			display: none;
+		}
+	}			
+}
+
 
 .landing__content--shifted{
 	width: 100vw;
@@ -81,6 +153,17 @@
 	}
 	@include media-breakpoint-up(lg) {
 		padding-left: 40px + $aside-tooltip-width;
+		&::before{
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: $aside-tooltip-width;
+			width: 100%;
+			height: 100%;
+			background-color: $white;
+			box-shadow: -3px 0px 8px rgba(0, 0, 0, 0.08)
+		}
 	}	
 }
 

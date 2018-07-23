@@ -25,6 +25,7 @@
 		});			
 
 		//sliders
+		var landingTopPagination = $('.slider--landing .swiper-pagination, .landing__header .swiper-pagination');
 		var landingTopSlider = new Swiper('.slider--landing', {
 			direction: 'horizontal',
 			slidesPerView: 1,
@@ -32,7 +33,7 @@
 			disableOnInteraction: false,
 			loop: true,
 			pagination: {
-				el: '.swiper-pagination',
+				el: landingTopPagination,
 				type: 'bullets',
 				clickable: true
 			}
