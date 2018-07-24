@@ -73,7 +73,6 @@
 	.landing__logo{
 		width: 131px;
 		height: 40px;
-		margin-right: 60px;
 		flex-shrink: 0;
 	}
 	.header__info{
@@ -97,6 +96,8 @@
 	}
 	.btn-link{
 		color: $white;
+		padding-right: 0;
+		flex-shrink: 0;
 		.icon{
 			width: 25px;
 			height: 25px;
@@ -107,6 +108,9 @@
 		display: none;
 	}
 	@include media-breakpoint-up(md) {
+		.landing__logo{
+			margin-right: 60px;
+		}		
 		.header__info{
 			display: block;
 		}
@@ -122,7 +126,7 @@
 			display: none;		
 		}
 		.btn-link{
-			display: none;
+			display: none !important;
 		}
 		.slider__pagination{
 			display: flex;
@@ -362,6 +366,9 @@
 		z-index: 3;
 		top: 30px;
 		right: 30px;
+		&:hover{
+			color: $green_3e8;
+		}
 		.icon{
 			width: 30px;
 			height: 30px;
@@ -381,7 +388,14 @@
 		}
 	}
 	@include media-breakpoint-up(md) {
-
+		.btn-link{
+			.icon--menu-close{
+				display: none;
+			}
+			.icon--menu-close-thin{
+				display: inline;
+			}
+		}
 	}	
 	@include media-breakpoint-up(lg) {
 		padding-left: 100px;

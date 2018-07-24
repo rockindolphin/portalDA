@@ -20,7 +20,7 @@ html(lang="ru")
 										.info__schedule
 											| Пн—Пт с 10:00 до 19:00
 									.swiper-pagination.slider__pagination
-									button.btn.button.button--primary(type='button') Отправить заявку
+									button.btn.button.button--primary(type='button', data-toggle="landing-form") Отправить заявку
 									button#aside-open.btn.btn-link(type='button', data-toggle="landing-aside")
 										+icon('menu')
 							section#section-1.landing__section.section--landing-slider
@@ -70,7 +70,7 @@ html(lang="ru")
 												li.list__item 
 													+icon('man')
 													span Вы – профессиональный инвестор.
-											button.btn.button.button--primary(type='button') Отправить заявку
+											button.btn.button.button--primary(type='button', data-toggle="landing-form") Отправить заявку
 							section#section-4.landing__section.section--banner.section--banner2
 								.page__wrapper
 									.section__content
@@ -90,10 +90,10 @@ html(lang="ru")
 													| Загружаем данные о ваших активах на Портал DA
 												li.list__item
 													| Проводим поиск инвестора, сопровождение сделки (в зависимости от пакета услуг)
-											button.btn.button.button--primary(type='button') Отправить заявку
+											button.btn.button.button--primary(type='button', data-toggle="landing-form") Отправить заявку
 					.landing__form-wrapper.custom-scroll.landing__form-wrapper--hidden
 						.landing__form
-							button.btn.btn-link(type='button')
+							button.btn.btn-link(type='button', data-toggle="landing-form")
 								+icon('menu-close')
 								+icon('menu-close-thin')
 							include ./partials/form.pug
@@ -131,7 +131,7 @@ html(lang="ru")
 									| +7 (985) 014-33-08
 								.info__schedule
 									| Пн—Пт с 10:00 до 19:00
-								button.btn.button.button--primary.mb-3(type='button') Отправить заявку										
+								button#aside-form-open.btn.button.button--primary.mb-3(type='button', data-toggle="landing-form") Отправить заявку
 								.info__copy
 									| © 2017—2018 Портал Distressed Assets
 			//-footer.page__footer footer
