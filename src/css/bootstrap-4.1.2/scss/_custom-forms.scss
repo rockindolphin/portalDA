@@ -97,14 +97,19 @@
 
 .custom-checkbox {
   .custom-control-label::before {
+    border: 1px solid;
+    border-color: $custom-control-indicator-checked-bg;
     @include border-radius($custom-checkbox-indicator-border-radius);
   }
 
   .custom-control-input:checked ~ .custom-control-label {
     &::before {
       @include gradient-bg($custom-control-indicator-checked-bg);
+      border-color: $green_70c;
     }
     &::after {
+      top: 0.05rem;
+      left: -1.4rem;
       background-image: $custom-checkbox-indicator-icon-checked;
     }
   }

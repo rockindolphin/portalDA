@@ -21,7 +21,7 @@ html(lang="ru")
 											| Пн—Пт с 10:00 до 19:00
 									.swiper-pagination.slider__pagination
 									button.btn.button.button--primary(type='button') Отправить заявку
-									button#aside-open.btn.btn-link(type='button')
+									button#aside-open.btn.btn-link(type='button', data-toggle="landing-aside")
 										+icon('menu')
 							section#section-1.landing__section.section--landing-slider
 								.swiper-container.slider.slider--landing
@@ -91,10 +91,16 @@ html(lang="ru")
 												li.list__item
 													| Проводим поиск инвестора, сопровождение сделки (в зависимости от пакета услуг)
 											button.btn.button.button--primary(type='button') Отправить заявку
-					aside.landing__aside-wrapper.custom-scroll.landing__aside--hidden
+					.landing__form-wrapper.custom-scroll.landing__form-wrapper--hidden
+						.landing__form
+							button.btn.btn-link(type='button')
+								+icon('menu-close')
+								+icon('menu-close-thin')
+							include ./partials/form.pug
+					aside.landing__aside-wrapper.custom-scroll.landing__aside-wrapper--hidden
 						.landing__aside
 							.landing__aside-header
-								button#aside-close.btn.btn-link(type='button')
+								button.btn.btn-link(type='button', data-toggle="landing-aside")
 									+icon('menu-close')
 								button.btn.button.btn-sm.button--outline-primary(type='button') 
 									+icon('enter','mr-2')

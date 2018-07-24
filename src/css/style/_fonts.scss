@@ -16,6 +16,9 @@
 /* exo-2-regular - cyrillic_latin */
 @include addFont('Exo2', normal, $fw-normal);
 
+/* exo-2-500 - cyrillic_latin */
+@include addFont('Exo2', normal, $fw-medium);
+
 /* exo-2-600 - cyrillic_latin */
 @include addFont('Exo2', normal, $fw-semi-bold);
 
