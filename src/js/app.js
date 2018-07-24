@@ -48,7 +48,21 @@
 				nextEl: '.section--assets .swiper-button-next',
 				prevEl: '.section--assets .swiper-button-prev',
 			},
-		});		
+		});	
+
+		function toggleAside(){
+			$('.landing__content').toggleClass('landing__content--shifted');
+			$('.landing__aside-wrapper').toggleClass('landing__aside--hidden');
+			setTimeout(function(args) {
+				requestAnimationFrame(() => {
+					landingTopSlider.update();
+				})
+			}, 400);			
+		}
+
+		$('#aside-open, #aside-close').click(() => {
+			toggleAside();
+		});
 
 	});
 })(jQuery);

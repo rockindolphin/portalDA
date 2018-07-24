@@ -20,6 +20,7 @@
 		height: 10px;
 		background: $white;
 		opacity: 0.3;
+		margin-left: 0 !important;
 		&:hover{
 			opacity: 0.5;
 		}
@@ -171,7 +172,10 @@
 		}
 		.asset__info{
 			display: block;
-		}					
+		}
+		.slider__pagination{
+			display: none;	
+		}							
 	}	
 }
 
