@@ -125,7 +125,31 @@
 			toggleForm(evt);
 		});	
 
-		window.toggleForm = toggleForm;		
+		//toggle menu items
+		function toggleMenuItem(num){
+			$('.landing__aside-menu .menu__item--active')
+				.removeClass('menu__item--active');
+			$(`.landing__aside-menu a[href^="#section-${num}"]`)
+				.closest('.menu__item')
+				.addClass('menu__item--active');
+		}
+
+		var controller = new ScrollMagic.Controller({
+			container: '.landing__content-wrapper'
+		});
+
+		function addScene(sectionNum){
+			new ScrollMagic.Scene({triggerElement: `#section-${sectionNum}` })
+							//.triggerHook('onLeave')
+							.on('enter leave', function (evt) {
+								evt.type == 'enter' ? toggleMenuItem(sectionNum) : toggleMenuItem(sectionNum-1);
+							})                              
+							.addTo(controller);			
+		}
+
+		[2, 3, 4].map((num) => {
+			addScene(num);
+		});
 
 	});
 })(jQuery);
