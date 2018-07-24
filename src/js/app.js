@@ -51,7 +51,7 @@
 		});	
 
 		function toggleAside(){
-			$('.landing__content').toggleClass('landing__content--shifted');
+			$('.landing__content-wrapper').toggleClass('landing__content-wrapper--shifted');
 			$('.landing__aside-wrapper').toggleClass('landing__aside--hidden');
 			setTimeout(function(args) {
 				requestAnimationFrame(() => {
