@@ -139,8 +139,6 @@
 	transition: width $anim-dur;
 	flex-shrink: 0;	
 	height: 100vh;
-	display: flex; /*fix бага ie11*/
-	flex-direction: row;	
 	overflow-y: scroll;
 	overflow-x: hidden !important; /*???*/
 	.ps__rail-x{
@@ -221,6 +219,7 @@
 
 .landing__aside-main{
 	flex-grow: 1;
+	flex-shrink: 0;
 	width: 100%;
 	position: relative;
 	z-index: 2;
