@@ -39,6 +39,7 @@
 			slidesPerView: 'auto',
 			loop: true,
 			autoHeight: true,
+			allowTouchMove: false,
 			navigation: {
 				nextEl: '.section--assets .swiper-button-next',
 				prevEl: '.section--assets .swiper-button-prev',
