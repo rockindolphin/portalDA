@@ -225,7 +225,7 @@ gulp.task('watch', function() {
 	gulp.watch(config.watch.svg_sprites, ['svg_sprites']);
 });
 
-gulp.task( 'build', [], function(){
+gulp.task( 'build', ['clean'], function(){
 	runSequence(	
 		'svg_sprites',
 		'fonts', 
@@ -239,8 +239,7 @@ gulp.task( 'build', [], function(){
 	)
 });
 
-gulp.task('default', [
-	'clean', 
+gulp.task('default', [ 
 	'build', 
 	'server', 
 	'watch' 
