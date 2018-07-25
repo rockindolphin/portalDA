@@ -132,6 +132,7 @@
 			font-size: 14px;
 			margin-bottom: 40px;
 			.list__item{
+				position: relative;
 				&:not(:last-child){
 					margin-bottom: 15px;			
 				}
@@ -205,14 +206,19 @@
 	}
 	.section__text{
 		& > ul.list{
-
+			.list__item{
+				padding-left: 38px;
+			}
 		}
 		.icon{
 			color: $green_70c;
 			margin-right: 14px;
 			width: 1.9em;
 			height: 1.9em;
-			vertical-align: bottom;
+			position: absolute;
+			left: 0;
+			top: 0.5em;
+			transform: translateY(-50%);
 		}		
 	}			
 	@include media-breakpoint-up(lg) {
@@ -244,6 +250,7 @@
 		& > ol.list{
 			counter-reset: list-counter;
 			.list__item{
+				padding-left: 38px;
 				counter-increment: list-counter;
 				&::before{
 					content: counter(list-counter);
@@ -258,7 +265,8 @@
 					border: 2px solid;
 					border-color: $green_70c;
 					border-radius: 50%; 
-					margin-right: 14px;
+					position: absolute;
+					left: 0;
 				}
 			}		
 		}
