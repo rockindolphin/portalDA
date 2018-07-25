@@ -31,32 +31,8 @@
 		});			
 
 		//sliders
-		var landingTopPagination = $('.slider--landing .swiper-pagination, .landing__header .swiper-pagination');
-		var landingTopSlider = new Swiper('.slider--landing', {
-			direction: 'horizontal',
-			slidesPerView: 1,
-			touchReleaseOnEdges: true,
-			disableOnInteraction: false,
-			loop: true,
-			pagination: {
-				el: landingTopPagination,
-				type: 'bullets',
-				clickable: true
-			},
-			/*autoplay: {
-				delay: 5000,
-				disableOnInteraction: false
-			},	
-			keyboard: true,		
-			effect: 'coverflow',
-			coverflowEffect: {
-				rotate: 10,
-				stretch: 1000,
-			},
-			cubeEffect: {
-				slideShadows: false,
-			},*/			
-		});
+		//var landingTopPagination = $('.slider--landing .swiper-pagination, .landing__header .swiper-pagination');
+		var landingTopSlider = new Swiper('.slider--landing', landingTopSliderConfig);
 
 		var landingAssetsSlider = new Swiper('.slider--assets', {
 			direction: 'horizontal',
