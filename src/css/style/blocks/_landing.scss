@@ -139,10 +139,6 @@
 	flex-shrink: 0;	
 	height: 100vh;
 	overflow-y: scroll;
-	overflow-x: hidden !important; /*???*/
-	.ps__rail-x{
-		display: none;
-	}
 }
 
 .landing__aside{
@@ -167,7 +163,7 @@
 		z-index: 1;
 		top: 0;
 		left: $aside-tooltip-width;
-		width: 100%;
+		right: 0;
 		height: 100%;
 		background-color: $white;
 		box-shadow: -3px 0px 8px rgba(0, 0, 0, 0.08);
