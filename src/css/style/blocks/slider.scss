@@ -86,10 +86,10 @@
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: flex-end;
-		padding-left: 30px; 
-		padding-right: 30px; 
-		padding-top: 24px;
-		padding-bottom: 153px;
+		@include cssvar(padding-left, page-gap);
+		@include cssvar(padding-right, page-gap);		
+		padding-top: 65px;
+		padding-bottom: 150px;
 		&::before{
 			content: '';
 			position: absolute;
@@ -105,13 +105,13 @@
 	.slider__pagination{
 		bottom: 100px;
 		text-align: left;
-		padding-left: 30px; 
-		padding-right: 30px; 		
+		@include cssvar(padding-left, page-gap);
+		@include cssvar(padding-right, page-gap); 		
 	}
 	.asset{
 		width: 100%;
 		position: relative;
-		z-index: 2;		
+		z-index: 2;
 	}
 	.asset__category{
 		font-size: 14px;
@@ -145,7 +145,8 @@
 		}		
 	}
 	@include media-breakpoint-up(md) {
-		.asset{
+		.slider__slide{
+
 		}
 		.asset__category,
 		.asset__title{
@@ -161,7 +162,10 @@
 	}	
 	@include media-breakpoint-up(lg) {
 		.asset{
-		
+			margin-left: -$aside-tooltip-width;
+		}		
+		.slider__slide{
+			padding-bottom: 30px;
 		}
 		.asset__title{
 			margin-bottom: 22px;
@@ -177,6 +181,11 @@
 			display: none;	
 		}							
 	}	
+	@include media-breakpoint-up(lg) {
+		.slider__slide{
+			padding-bottom: 80px;
+		}
+	}
 }
 
 .slider--assets{
@@ -248,7 +257,7 @@
 		font-size: 13px;
 		line-height: 1.38;
 		color: $gray_747;
-		margin-bottom: 40px;
+		margin-bottom: 20px;
 		& > div > span{
 			&:nth-child(2){
 				color: $gray_282;

@@ -1,0 +1,4 @@
+@mixin cssvar($property_name, $varname){
+	#{$property_name}: map-get($cssvars, $varname);
+	#{$property_name}: var(--#{$varname});
+}

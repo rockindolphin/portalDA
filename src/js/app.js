@@ -47,13 +47,13 @@
 				delay: 5000,
 				disableOnInteraction: false
 			},	
-			keyboard: true,*/		
+			keyboard: true,		
 			effect: 'coverflow',
 			coverflowEffect: {
 				rotate: 10,
 				stretch: 1000,
 			},
-			/*cubeEffect: {
+			cubeEffect: {
 				slideShadows: false,
 			},*/			
 		});

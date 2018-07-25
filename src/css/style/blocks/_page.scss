@@ -20,10 +20,11 @@
 .page__wrapper{
 	width: 100%;
 	max-width: $page-wrapper-max + $page-gap*2;
+	max-width: calc( var(--page-wrapper-max) + var(--page-gap)*2 );
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: $page-gap;
-	padding-right: $page-gap;
+	@include cssvar(padding-left, page-gap);
+	@include cssvar(padding-right, page-gap);
 }
 
 .page__header{

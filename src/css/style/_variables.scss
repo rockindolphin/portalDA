@@ -26,7 +26,7 @@ $green_3e8: #3e894b;
 $green_469: #46934b;
 
 /*Page*/
-$page-gap: 15px;
+$page-gap: 30px;
 $page-wrapper-max: 1140px;
 $aside-tooltip-width: 10px;
 
@@ -37,3 +37,25 @@ $anim-dur: 0.4s;
 $landing-aside-width: 340px;
 $landing-form-width-lg: 660px;
 $landing-form-width-xl: 790px;
+
+
+$cssvars: () !default;
+$cssvars: map-merge(
+  (
+  	"page-gap": 		$page-gap,
+  	"page-wrapper-max":	$page-wrapper-max,
+  ),
+  $cssvars
+);
+
+:root {
+	@each $cssvar, $value in $cssvars {
+		--#{$cssvar}: #{$value};
+	}
+ }
+
+:root{
+	@include media-breakpoint-down(xs) {
+		--page-gap: 15px;
+	} 	
+}
