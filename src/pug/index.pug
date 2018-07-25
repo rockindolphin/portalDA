@@ -11,129 +11,13 @@ html(lang="ru")
 				.landing
 					.landing__content-wrapper.custom-scroll
 						.landing__content
-							.landing__header
-								.page__wrapper
-									+icon('logo', 'landing__logo')
-									.header__info
-										a.info__phone(href="tel:+79850143308")
-											| +7 (985) 014-33-08
-										.info__schedule
-											| Пн—Пт с 10:00 до 19:00
-									.swiper-pagination.slider__pagination
-									button.btn.button.button--primary(type='button', data-toggle="landing-form") Отправить заявку
-									button#aside-open.btn.btn-link(type='button', data-toggle="landing-aside")
-										+icon('menu')
-							section#section-1.landing__section.section--landing-slider
-								.swiper-container.slider.slider--landing
-									.swiper-wrapper.slider__wrapper
-										each index in [0, 1, 2]
-											.swiper-slide.slider__slide
-												+asset_top(index)
-									.swiper-pagination.slider__pagination
-							section#section-2.landing__section.section--assets
-								.section__wrapper
-									.section__title
-										| Приобрести активы сейчас
-									.section__subtitle
-										| Проблемные активы стоят в разы дешевле обыкновенных предложений на рынке недвижимости, это и позволяет нашим покупателям дешево купить активы банкротов на нашей «распродаже активов».
-									.d-flex.align-items-center.justify-content-center
-										.slider__btn.slider__btn--prev.swiper-button-prev
-										.swiper-container.slider.slider--assets
-											.swiper-wrapper.slider__wrapper
-												each index in [0, 1, 2, 3, 4, 5]
-													.swiper-slide.slider__slide
-														+asset(index)
-										.slider__btn.slider__btn--next.swiper-button-next
-							section#section-3.landing__section.section--banner.section--banner1
-								.page__wrapper
-									.section__content
-										.section__title
-											| Стать профессиональным инвестором
-										.section__subtitle
-											| Проблемные активы стоят в разы дешевле обыкновенных предложений на рынке недвижимости, это и позволяет нашим покупателям дешево купить активы банкротов на нашей «распродаже активов».
-										.section__text
-											p
-												| Как стать профессиональным инвестором
-											ul.list
-												li.list__item 
-													+icon('ruble-crossed')
-													span Это бесплатно!
-												li.list__item 
-													+icon('document-ok')
-													span Заполните анкету и приложите документы.
-												li.list__item 
-													+icon('lock')
-													span Придумайте логин и пароль.
-												li.list__item 
-													+icon('dialog')
-													span Мы с вами свяжемся.
-												li.list__item 
-													+icon('man')
-													span Вы – профессиональный инвестор.
-											button.btn.button.button--primary(type='button', data-toggle="landing-form") Отправить заявку
-							section#section-4.landing__section.section--banner.section--banner2
-								.page__wrapper
-									.section__content
-										.section__title
-											| Продать выгодно
-										.section__subtitle
-											| Площадка по продаже активов является новым профессиональным инструментом, обеспечивающим реализацию имущества, продажу непрофильных активов и иного проблемного имущества в сжатые сроки и по выгодным ценам.
-										.section__text
-											ol.list
-												li.list__item
-													| Мы проводим презентацию Портала DA и подробно рассказываем о возможных вариантах сотрудничества
-												li.list__item
-													| Согласовываем Договор о сотрудничестве (пакет услуг и стоимость)
-												li.list__item
-													| Предоставляем вам доступ к Порталу DA
-												li.list__item
-													| Загружаем данные о ваших активах на Портал DA
-												li.list__item
-													| Проводим поиск инвестора, сопровождение сделки (в зависимости от пакета услуг)
-											button.btn.button.button--primary(type='button', data-toggle="landing-form") Отправить заявку
-					.landing__form-wrapper.custom-scroll.landing__form-wrapper--hidden
-						.landing__form
-							button.btn.btn-link(type='button', data-toggle="landing-form")
-								+icon('menu-close')
-								+icon('menu-close-thin')
-							include ./partials/form.pug
-					aside.landing__aside-wrapper.custom-scroll.landing__aside-wrapper--hidden
-						.landing__aside
-							.landing__aside-header
-								button.btn.btn-link(type='button', data-toggle="landing-aside")
-									+icon('menu-close')
-								button.btn.button.btn-sm.button--outline-primary(type='button') 
-									+icon('enter','mr-2')
-									| Регистрация / Вход 
-							.landing__aside-main
-								.landing__aside-menu
-									.menu__item
-										a.link(href="#section-2")
-											| Купить сейчас
-										.d-block.mt-2
-											.d-block Гарантия защиты информации
-											.d-block Точный и релевантный выбор для вашего бизнеса
-											.d-block Юридическая поддержка
-									.menu__item.menu__item--active
-										a.link(href="#section-3")
-											| Зарегистрироваться на портале
-										.d-block.mt-2
-											| Расширить границы бизнеса. Выгодные инвестиции в готовый бизнес. Активы на территории России и за рубежом
-									.menu__item
-										a.link(href="#section-4")
-											| Выгодно продать
-										.d-block.mt-2
-											.d-block Гарантия защиты информации
-											.d-block Точный и релевантный выбор для вашего бизнеса
-											.d-block Юридическая поддержка
-							.landing__aside-footer
-								a.info__phone(href="tel:+79850143308")
-									| +7 (985) 014-33-08
-								.info__schedule
-									| Пн—Пт с 10:00 до 19:00
-								button#aside-form-open.btn.button.button--primary.mb-3(type='button', data-toggle="landing-form") Отправить заявку
-								.info__copy
-									| © 2017—2018 Портал Distressed Assets
+							include ./partials/landing-header.pug
+							include ./partials/section-slider.pug
+							include ./partials/section-assets.pug
+							include ./partials/section-banner1.pug
+							include ./partials/section-banner2.pug
+					include ./partials/landing-form.pug
+					include ./partials/landing-aside.pug
 			//-footer.page__footer footer
 			include partials/scripts.pug 
 		

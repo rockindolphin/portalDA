@@ -1,0 +1,8 @@
+section#section-1.landing__section.section--landing-slider.landing__section--active
+	.swiper-container.slider.slider--landing
+		.swiper-wrapper.slider__wrapper
+			each index in [0, 1, 2]
+				.swiper-slide.slider__slide
+					+asset_top(index)
+		.swiper-pagination.slider__pagination
+	+section_btn(2)

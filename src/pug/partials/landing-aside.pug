@@ -1,0 +1,37 @@
+aside.landing__aside-wrapper.custom-scroll.landing__aside-wrapper--hidden
+	.landing__aside
+		.landing__aside-header
+			button.btn.btn-link(type='button', data-toggle="landing-aside")
+				+icon('menu-close')
+			button.btn.button.btn-sm.button--outline-primary(type='button') 
+				+icon('enter','mr-2')
+				| Регистрация / Вход 
+		.landing__aside-main
+			.landing__aside-menu
+				.menu__item
+					a.link(href="#section-2")
+						| Купить сейчас
+					.d-block.mt-2
+						.d-block Гарантия защиты информации
+						.d-block Точный и релевантный выбор для вашего бизнеса
+						.d-block Юридическая поддержка
+				.menu__item.menu__item--active
+					a.link(href="#section-3")
+						| Зарегистрироваться на портале
+					.d-block.mt-2
+						| Расширить границы бизнеса. Выгодные инвестиции в готовый бизнес. Активы на территории России и за рубежом
+				.menu__item
+					a.link(href="#section-4")
+						| Выгодно продать
+					.d-block.mt-2
+						.d-block Гарантия защиты информации
+						.d-block Точный и релевантный выбор для вашего бизнеса
+						.d-block Юридическая поддержка
+		.landing__aside-footer
+			a.info__phone(href="tel:+79850143308")
+				| +7 (985) 014-33-08
+			.info__schedule
+				| Пн—Пт с 10:00 до 19:00
+			button#aside-form-open.btn.button.button--primary.mb-3(type='button', data-toggle="landing-form") Отправить заявку
+			.info__copy
+				| © 2017—2018 Портал Distressed Assets

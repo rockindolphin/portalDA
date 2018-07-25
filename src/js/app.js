@@ -42,7 +42,20 @@
 				el: landingTopPagination,
 				type: 'bullets',
 				clickable: true
-			}
+			},
+			/*autoplay: {
+				delay: 5000,
+				disableOnInteraction: false
+			},	
+			keyboard: true,*/		
+			effect: 'coverflow',
+			coverflowEffect: {
+				rotate: 10,
+				stretch: 1000,
+			},
+			/*cubeEffect: {
+				slideShadows: false,
+			},*/			
 		});
 
 		var landingAssetsSlider = new Swiper('.slider--assets', {
@@ -57,10 +70,10 @@
 		});	
 
 		//scroll to section
-		$('a[href^="#"]').click( (evt) => {
+		$('a[href^="#"]').click( function(evt){
 			evt.preventDefault();
 			var contentTop = $('.landing__content').offset().top;
-			var sectionTop = $(evt.target.hash).offset().top;
+			var sectionTop = $(this.hash).offset().top;
 			$('.landing__content-wrapper').animate({
 				scrollTop: sectionTop - contentTop
 			}, config.animDur*2);			
@@ -134,6 +147,13 @@
 				.addClass('menu__item--active');
 		}
 
+		function toggleLandingSection(num){
+			$('.landing__section--active')
+				.removeClass('landing__section--active');
+			$(`#section-${num}`)
+				.addClass('landing__section--active');
+		}
+
 		var controller = new ScrollMagic.Controller({
 			container: '.landing__content-wrapper'
 		});
@@ -143,6 +163,7 @@
 							//.triggerHook('onLeave')
 							.on('enter leave', function (evt) {
 								evt.type == 'enter' ? toggleMenuItem(sectionNum) : toggleMenuItem(sectionNum-1);
+								evt.type == 'enter' ? toggleLandingSection(sectionNum) : toggleLandingSection(sectionNum-1);
 							})                              
 							.addTo(controller);			
 		}

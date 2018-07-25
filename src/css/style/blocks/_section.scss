@@ -18,6 +18,10 @@
 	
 }
 
+.section__btn{
+
+}
+
 .section--landing-slider{
 	min-height: 100vh;
 	display: flex;
@@ -58,7 +62,10 @@
 		font-size: 14px;
 		line-height: 1.5;
 		margin-bottom: 40px;
-	}	
+	}
+	.section__btn{
+		color: $gray_282;
+	}
 	@include media-breakpoint-up(sm) {
 
 	}
@@ -260,7 +267,12 @@
 				}
 			}		
 		}
-	}			
+	}
+	.section__btn{
+		color: $gray_282;
+		transform: translateX(-50%) rotate(180deg);
+		transform-origin: 50% 50%;
+	}				
 	@include media-breakpoint-up(lg) {
 		background-image: url('../images/banner-2.png');
 		background-position: center;

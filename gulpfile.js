@@ -15,6 +15,7 @@ const 	gulp = require('gulp'),
 		autoprefixer = require('gulp-autoprefixer'),
 		babel = require('gulp-babel'),
 		svgSprite = require("gulp-svg-sprites"),
+		runSequence = require('run-sequence'),
 		server = require('gulp-server-livereload');
 
 var config = {
@@ -208,7 +209,7 @@ gulp.task('svg_sprites', () => {
 			(err) => {
 				if (err) return err_log(err);
 			}
-		);		
+		);
 	}
 );
 
@@ -224,17 +225,19 @@ gulp.task('watch', function() {
 	gulp.watch(config.watch.svg_sprites, ['svg_sprites']);
 });
 
-gulp.task( 'build', [
-	'html', 
-	'fonts', 
-	'images',
-	'js',
-	'js_vendors',
-	'css',
-	'favicon',
-	'css_vendors',
-	'svg_sprites',
-]);
+gulp.task( 'build', [], function(){
+	runSequence(	
+		'svg_sprites',
+		'fonts', 
+		'images',
+		'js',
+		'js_vendors',
+		'css',
+		'favicon',
+		'css_vendors',
+		'html'
+	)
+});
 
 gulp.task('default', [
 	'clean', 

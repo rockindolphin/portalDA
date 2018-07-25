@@ -302,6 +302,50 @@
 .landing__section{
 	min-height: 100vh;
 	flex-shrink: 0;
+	position: relative;
+	.section__btn{
+		opacity: 0;
+		position: absolute;
+		z-index: 2;
+		bottom: 20px;
+		left: 50%;
+		transform: translateX(-50%);
+		color: $white;
+		transition: opacity $anim-dur;
+		&:hover{
+			color: $green_3e8;
+			opacity: 1;
+		}
+		.icon{
+			width: 32px;
+			height: 14px;
+		}
+	}	
+	@include media-breakpoint-up(md) {
+		.section__btn{
+			bottom: 30px;
+			.icon{
+				width: 64px;
+				height: 28px;
+			}
+		}
+	}
+	@include media-breakpoint-up(lg) {
+		.section__btn{
+			bottom: 40px;
+		}
+	}
+	@include media-breakpoint-up(xl) {
+		.section__btn{
+			bottom: 80px;
+		}
+	}					
+}
+
+.landing__section--active{
+	.section__btn{
+		opacity: 0.5;
+	}
 }
 
 .landing__form-wrapper{

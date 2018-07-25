@@ -1,0 +1,44 @@
+.landing__form-wrapper.custom-scroll.landing__form-wrapper--hidden
+	.landing__form
+		button.btn.btn-link(type='button', data-toggle="landing-form")
+			+icon('menu-close')
+			+icon('menu-close-thin')
+		form.needs-validation(novalidate)
+			.form__title Заявка
+			.mb-3
+				label(for='surname') Фамилия
+				input#surname.form-control(type='text', placeholder='', required)
+				.invalid-feedback
+					| Пожалуйста введите фамилию.								
+			.mb-3
+				label(for='name') Имя
+				input#name.form-control(type='text', placeholder='', required)
+				.invalid-feedback
+					| Пожалуйста введите имя.
+			.mb-3
+				label(for='secondname') Отчество
+				input#secondname.form-control(type='text', placeholder='', required)
+				.invalid-feedback
+					| Пожалуйста введите отчество.																				
+			.mb-3
+				label(for='phone') Телефон
+				input#phone.form-control(type='text', placeholder='', required)
+				.invalid-feedback
+					| Пожалуйста введите телефон.																				
+			.mb-3
+				label(for='email') Эл. почта
+				input#email.form-control(type='text', placeholder='', required)
+				.invalid-feedback
+					| Пожалуйста введите email.																				
+			.mb-3
+				label(for='comments') Комментарий
+				textarea#comments.form-control(rows=3, placeholder='')
+			.mb-3
+				.custom-control.custom-checkbox
+					input#personaldata.custom-control-input(type='checkbox')
+					label.custom-control-label(for='personaldata')
+						| Подтверждаю своё согласие на обработку моих персональных данных
+			.mb-3
+				button.btn.button.button--primary.mb-3(type='button') Отправить
+			.d-block
+				| Наш сотрудник свяжется с вами в течение дня, примет недостающие данные и раскажет подробности
