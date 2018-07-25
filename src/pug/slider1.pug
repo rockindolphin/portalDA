@@ -1,0 +1,47 @@
+include ./mixins/mixins.pug
+
+doctype html
+html(lang="ru")
+	+head()
+	body.page
+		include ../../dist/images/sprite.svg
+		.page__body
+			//-header.page__header header
+			main.page__main
+				.landing
+					.landing__content-wrapper.custom-scroll
+						.landing__content
+							include ./partials/landing-header.pug
+							include ./partials/section-slider.pug
+							include ./partials/section-assets.pug
+							include ./partials/section-banner1.pug
+							include ./partials/section-banner2.pug
+					include ./partials/landing-form.pug
+					include ./partials/landing-aside.pug
+			//-footer.page__footer footer
+			script.
+				var landingTopPagination = document.querySelectorAll('.slider--landing .swiper-pagination, .landing__header .swiper-pagination');
+				var landingTopSliderConfig = {
+					direction: 'horizontal',
+					slidesPerView: 1,
+					touchReleaseOnEdges: true,
+					disableOnInteraction: false,
+					loop: true,
+					pagination: {
+						el: landingTopPagination,
+						type: 'bullets',
+						clickable: true
+					},
+					autoplay: {
+						delay: 5000,
+						disableOnInteraction: false
+					},						
+					effect: 'fade',
+					on: {
+						init: function () {
+							this.$el[0].className += ' slider--landing-style1';
+						},
+					}					
+				};
+				window.config = landingTopSliderConfig;
+			include partials/scripts.pug 
