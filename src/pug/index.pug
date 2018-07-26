@@ -4,14 +4,19 @@ doctype html
 html(lang="ru")
 	+head()
 	body.page
+		include ../../dist/images/sprite.svg
 		.page__body
-			.page__wrapper
-				ul.mt-5
-					li
-						a(href="slider1.html") slider 1 (fade + text)
-					li
-						a(href="slider2.html") slider 2 (coverflow)
-					li
-						a(href="slider3.html") slider 3 (cube + text)
-					li
-						a(href="slider4.html") slider 4 (slide + zooming + moving)
+			//-header.page__header header
+			main.page__main
+				.landing
+					.landing__content-wrapper.custom-scroll
+						.landing__content
+							include ./partials/landing-header.pug
+							include ./partials/section-slider.pug
+							include ./partials/section-assets.pug
+							include ./partials/section-banner1.pug
+							include ./partials/section-banner2.pug
+					include ./partials/landing-form.pug
+					include ./partials/landing-aside.pug
+			//-footer.page__footer footer
+			include partials/scripts.pug 

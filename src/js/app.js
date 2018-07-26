@@ -31,8 +31,29 @@
 		});			
 
 		//sliders
-		//var landingTopPagination = $('.slider--landing .swiper-pagination, .landing__header .swiper-pagination');
-		var landingTopSlider = new Swiper('.slider--landing', landingTopSliderConfig);
+		var landingTopPagination = $('.slider--landing .swiper-pagination, .landing__header .swiper-pagination');
+		var landingTopSlider = new Swiper('.slider--landing', {
+			direction: 'horizontal',
+			speed: 600,
+			slidesPerView: 1,
+			touchReleaseOnEdges: true,
+			disableOnInteraction: false,
+			loop: true,
+			pagination: {
+				el: landingTopPagination,
+				type: 'bullets',
+				clickable: true
+			},
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false
+			},	
+			allowTouchMove: false,
+			effect: 'cube',		
+			cubeEffect: {
+				slideShadows: false,
+			}			
+		});
 
 		var landingAssetsSlider = new Swiper('.slider--assets', {
 			direction: 'horizontal',
