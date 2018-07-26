@@ -44,5 +44,7 @@ gulp - build + server + watch
 └── .gitignore
 ```
 style.scss - импортит все стили из blocks + некоторые части бутстрапа
+
 css/vendors - стили js библиотек
+
 images/sprites/svg - иконки для svg спрайта
