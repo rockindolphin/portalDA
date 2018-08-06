@@ -1,4 +1,6 @@
-.custom-scroll{
+.custom-scroll,
+.custom-scroll-x,
+.custom-scroll-y{
   position: relative;
 }
 .ps__rail-x,

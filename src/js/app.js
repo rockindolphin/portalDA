@@ -28,7 +28,23 @@
 			var self = this;
 			var ps = new PerfectScrollbar(this, {wheelPropagation: true});
 			$(this).data('ps', ps);
-		});			
+		});
+		$('.custom-scroll-x').each(function(){
+			var self = this;
+			var ps = new PerfectScrollbar(this, {
+				wheelPropagation: true,
+				suppressScrollY: true
+			});
+			$(this).data('ps', ps);
+		});
+		$('.custom-scroll-y').each(function(){
+			var self = this;
+			var ps = new PerfectScrollbar(this, {
+				wheelPropagation: true,
+				suppressScrollX: true
+			});
+			$(this).data('ps', ps);
+		});
 
 		//sliders
 		var landingTopPagination = $('.slider--landing .swiper-pagination, .landing__header .swiper-pagination');
