@@ -3,7 +3,7 @@
 		button.btn.btn-link(type='button', data-toggle="landing-form")
 			+icon('menu-close')
 			+icon('menu-close-thin')
-		form.needs-validation(novalidate)
+		form.needs-validation(action="#")
 			.form__title Заявка
 			.mb-3
 				label(for='surname') Фамилия
@@ -22,12 +22,12 @@
 					| Пожалуйста введите отчество.																				
 			.mb-3
 				label(for='phone') Телефон
-				input#phone.form-control(type='text', placeholder='', required)
+				input#phone.form-control(type='tel', placeholder='', required)
 				.invalid-feedback
 					| Пожалуйста введите телефон.																				
 			.mb-3
 				label(for='email') Эл. почта
-				input#email.form-control(type='text', placeholder='', required)
+				input#email.form-control(type='email', placeholder='', required)
 				.invalid-feedback
 					| Пожалуйста введите email.																				
 			.mb-3
@@ -35,10 +35,10 @@
 				textarea#comments.form-control(rows=3, placeholder='')
 			.mb-3
 				.custom-control.custom-checkbox
-					input#personaldata.custom-control-input(type='checkbox')
+					input#personaldata.custom-control-input(type='checkbox', required)
 					label.custom-control-label(for='personaldata')
 						| Подтверждаю своё согласие на обработку моих персональных данных
 			.mb-3
-				button.btn.button.button--primary.mb-3(type='button') Отправить
+				button.btn.button.button--primary.mb-3(type='submit') Отправить
 			.d-block
 				| Наш сотрудник свяжется с вами в течение дня, примет недостающие данные и раскажет подробности
