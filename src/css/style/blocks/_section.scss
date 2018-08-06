@@ -190,7 +190,11 @@
 		}				
 	}			
 	@include media-breakpoint-up(xl) {
-
+		& > .page__wrapper{
+			max-width: none;
+			padding-left: 8vw;
+			padding-right: 8vw;
+		}
 	}			
 }
 

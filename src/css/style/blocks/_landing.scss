@@ -121,6 +121,10 @@
 		.button--primary{
 			display: block;		
 		}
+		& > .page__wrapper{
+			padding-left: 40px;
+			padding-right: 40px;
+		}		
 	}
 	@include media-breakpoint-up(lg) {
 		.landing__logo{
@@ -138,8 +142,18 @@
 		}
 		.slider__pagination{
 			display: flex;
+		}
+		& > .page__wrapper{
+			padding-left: 60px;
+			padding-right: 60px;
+		}				
+	}
+	@include media-breakpoint-up(xl) {
+		& > .page__wrapper{
+			padding-left: 100px;
+			padding-right: 100px;
 		}		
-	}			
+	}		
 }
 
 .landing__aside-wrapper{
