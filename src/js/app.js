@@ -46,9 +46,21 @@
 			$(this).data('ps', ps);
 		});
 
+		const Browser = (function Browser() {
+			function isSafari() {
+				const ua = window.navigator.userAgent.toLowerCase();
+				return (ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0);
+			}
+			return {
+				isIE: !!window.navigator.userAgent.match(/Trident/g) || !!window.navigator.userAgent.match(/MSIE/g),
+				isSafari: isSafari(),
+				isUiWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window.navigator.userAgent),
+			};
+		}());
+
 		//sliders
 		var landingTopPagination = $('.slider--landing .swiper-pagination, .landing__header .swiper-pagination');
-		var landingTopSlider = new Swiper('.slider--landing', {
+		var landingTopSliderConfig = {
 			direction: 'horizontal',
 			speed: 600,
 			slidesPerView: 1,
@@ -63,34 +75,35 @@
 			autoplay: {
 				delay: 5000,
 				disableOnInteraction: false
-			},	
-			allowTouchMove: false,
-			effect: 'cube',		
-			cubeEffect: {
-				slideShadows: false,
 			},
-			isSafari: null,
-			fixSafariTransform: function(swiper){
-				if (swiper.params.isSafari) {
-					var wrapper = $(swiper.$wrapperEl).get(0);
-					var zFactor = wrapper.style.transformOrigin.split(' ')[2];
-					var fixedTransform = wrapper.style.transform.replace(zFactor, '0px');
-					wrapper.style.transform = fixedTransform;				
-				}
-			},
-			on: {
-				init: function() {
-					const ua = window.navigator.userAgent.toLowerCase();
-					this.params.isSafari = (ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0);
-				},
+			allowTouchMove: false,			
+		}
+
+		if( Browser.isSafari ){
+			landingTopSliderConfig.fixSafariTransform = function(swiper){
+				var wrapper = $(swiper.$wrapperEl).get(0);
+				var zFactor = wrapper.style.transformOrigin.split(' ')[2];
+				var fixedTransform = wrapper.style.transform.replace(zFactor, '0px');
+				wrapper.style.transform = fixedTransform;				
+			};
+			landingTopSliderConfig.on = {
 				slideChangeTransitionStart: function() {
 					this.params.fixSafariTransform(this);
 				},
 				imagesReady: function() {
 					this.params.fixSafariTransform(this);
-				}
-			}						
-		});
+				}				
+			};
+		}
+
+		if( !Browser.isIE ){
+			landingTopSliderConfig.effect = 'cube'		
+			landingTopSliderConfig.cubeEffect = {
+				slideShadows: false,
+			};
+		}		
+		
+		var landingTopSlider = new Swiper('.slider--landing', landingTopSliderConfig);
 
 		var landingAssetsSlider = new Swiper('.slider--assets', {
 			direction: 'horizontal',
