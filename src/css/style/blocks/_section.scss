@@ -241,7 +241,19 @@
 		}
 		.section__content{
 			margin-right: 0;
-		}				
+		}
+	}
+	@include media-breakpoint-up(xl) {
+		.section__text{
+			& > ul.list{
+				.list__item{
+					padding-left: 0px;
+				}
+			}
+			.icon{
+				left: -38px;
+			}		
+		}						
 	}						
 }
 
@@ -297,5 +309,17 @@
 		.section__content{
 			margin-left: 0;
 		}				
+	}
+	@include media-breakpoint-up(xl) {
+		.section__text{
+			& > ol.list{
+				.list__item{
+					padding-left: 0;
+					&::before{
+						left: -38px;
+					}
+				}		
+			}
+		}
 	}					
 }
