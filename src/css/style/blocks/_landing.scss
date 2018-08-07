@@ -162,6 +162,8 @@
 	flex-shrink: 0;	
 	height: 100vh;
 	overflow-y: scroll;
+	position: relative;
+	z-index: 10;
 }
 
 .landing__aside{
@@ -385,9 +387,13 @@
 }
 
 .landing__form-wrapper{
+	position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    transition: right $anim-dur;
 	width: 100vw;
 	max-width: 100vw;
-	transition: width $anim-dur;
 	flex-shrink: 0;	
 	height: 100vh;
 	overflow-y: scroll;
@@ -399,6 +405,7 @@
 
 	}
 	@include media-breakpoint-up(lg) {
+		right: $landing-aside-width;
 		width: $landing-form-width-lg;
 		margin-right: -$aside-tooltip-width;
 	}
@@ -509,6 +516,5 @@
 }
 
 .landing__form-wrapper--hidden{
-	width: 0;
-	margin-right: 0;
+	right: -100vw;
 }

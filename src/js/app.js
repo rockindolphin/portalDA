@@ -151,7 +151,6 @@
 		function openForm(evt){
 			closeAside();
 			config.formOpen = true;
-			$('.landing__content-wrapper').addClass('landing__content-wrapper--shifted');
 			$('.landing__form-wrapper').removeClass('landing__form-wrapper--hidden');
 			$('#aside-form-open').hide();
 			updateTopSlider();			
@@ -159,7 +158,6 @@
 
 		function closeForm(evt){
 			config.formOpen = false;
-			$('.landing__content-wrapper').removeClass('landing__content-wrapper--shifted');
 			$('.landing__form-wrapper').addClass('landing__form-wrapper--hidden');
 			$('#aside-form-open').show();	
 			updateTopSlider();
