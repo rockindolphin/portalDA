@@ -68,7 +68,28 @@
 			effect: 'cube',		
 			cubeEffect: {
 				slideShadows: false,
-			}			
+			},
+			isSafari: null,
+			fixSafariTransform: function(swiper){
+				if (swiper.params.isSafari) {
+					var wrapper = $(swiper.$wrapperEl).get(0);
+					var zFactor = wrapper.style.transformOrigin.split(' ')[2];
+					var fixedTransform = wrapper.style.transform.replace(zFactor, '0px');
+					wrapper.style.transform = fixedTransform;				
+				}
+			},
+			on: {
+				init: function() {
+					const ua = window.navigator.userAgent.toLowerCase();
+					this.params.isSafari = (ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0);
+				},
+				slideChangeTransitionStart: function() {
+					this.params.fixSafariTransform(this);
+				},
+				imagesReady: function() {
+					this.params.fixSafariTransform(this);
+				}
+			}						
 		});
 
 		var landingAssetsSlider = new Swiper('.slider--assets', {
