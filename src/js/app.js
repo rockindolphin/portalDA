@@ -44,25 +44,13 @@
 				suppressScrollX: true
 			});
 			$(this).data('ps', ps);
-		});
-
-		const Browser = (function Browser() {
-			function isSafari() {
-				const ua = window.navigator.userAgent.toLowerCase();
-				return (ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0);
-			}
-			return {
-				isIE: !!window.navigator.userAgent.match(/Trident/g) || !!window.navigator.userAgent.match(/MSIE/g),
-				isSafari: isSafari(),
-				isUiWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window.navigator.userAgent),
-			};
-		}());
+		});		
 
 		//sliders
 		var landingTopPagination = $('.slider--landing .swiper-pagination, .landing__header .swiper-pagination');
-		var landingTopSliderConfig = {
+		var landingTopSlider = new Swiper('.slider--landing', {
 			direction: 'horizontal',
-			speed: 600,
+			speed: 1000,
 			slidesPerView: 1,
 			touchReleaseOnEdges: true,
 			disableOnInteraction: false,
@@ -76,34 +64,14 @@
 				delay: 5000,
 				disableOnInteraction: false
 			},
-			allowTouchMove: false,			
-		}
-
-		if( Browser.isSafari ){
-			landingTopSliderConfig.fixSafariTransform = function(swiper){
-				var wrapper = $(swiper.$wrapperEl).get(0);
-				var zFactor = wrapper.style.transformOrigin.split(' ')[2];
-				var fixedTransform = wrapper.style.transform.replace(zFactor, '0px');
-				wrapper.style.transform = fixedTransform;				
-			};
-			landingTopSliderConfig.on = {
-				slideChangeTransitionStart: function() {
-					this.params.fixSafariTransform(this);
-				},
-				imagesReady: function() {
-					this.params.fixSafariTransform(this);
-				}				
-			};
-		}
-
-		if( !Browser.isIE ){
-			landingTopSliderConfig.effect = 'cube'		
-			landingTopSliderConfig.cubeEffect = {
-				slideShadows: false,
-			};
-		}		
-		
-		var landingTopSlider = new Swiper('.slider--landing', landingTopSliderConfig);
+			allowTouchMove: false,
+			effect: 'coverflow',
+			coverflowEffect: {
+				rotate: 50,
+				slideShadows: true,	
+				stretch: 50			
+			}	
+		});
 
 		var landingAssetsSlider = new Swiper('.slider--assets', {
 			direction: 'horizontal',

@@ -107,7 +107,7 @@
 		bottom: 100px;
 		text-align: left;
 		@include cssvar(padding-left, page-gap);
-		@include cssvar(padding-right, page-gap); 		
+		@include cssvar(padding-right, page-gap);
 	}
 	.asset{
 		width: 100%;
@@ -117,7 +117,7 @@
 		opacity: 0;
 		transition: opacity $anim-dur,
 					transform $anim-dur;
-		transition-delay: 0.2s;		
+		transition-delay: 0.5s;		
 	}
 	.asset__category{
 		font-size: 14px;
@@ -139,7 +139,7 @@
 		opacity: 0.65;
 		transform: translateX(200%);
 		transition: transform $anim-dur;
-		transition-delay: 0.5s;				
+		transition-delay: 0.8s;				
 	}
 	.asset__type{
 		font-weight: $fw-bold;
